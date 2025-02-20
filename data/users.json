@@ -1,0 +1,9 @@
+{
+    "utenti":{
+        "FREE":"fornisci una risposta generica ma incoraggia l'upgrade ai piani a pagamento.",
+        "Piano Base": "offri supporto, ma evidenzia le funzioni avanzate disponibili nei piani superiori.",
+        "PRO":"rispondi in modo dettagliato, mettendo in risalto le funzionalità premium disponibili per lui.",
+        "ULTRA PRO":"offri una risposta premium con priorità, enfatizzando l'accesso esclusivo ai servizi top di gamma."
+    }
+}
+
