@@ -52,4 +52,23 @@ def pulisci_query_agent(query: str) -> str:
     result = chain.invoke({"input": f"Pulisci la seguente domanda: {query}"})
     return result.content.strip()
 
-
+def classify_query_agent(query: str) -> str:
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                """
+                Sei un assistente intelligente.
+                Decidi dove è meglio cercare la risposta:
+                - 'FAQ' se la domanda è comune
+                - 'Knowledge Base' se serve più dettaglio
+                - 'Web' se la risposta non è nei dati interni o se
+                Rispondi SOLO con 'FAQ', 'Knowledge Base' o 'Web'.
+                """
+            ),
+            ("human", "{input}"),
+        ]
+    )
+    chain = prompt | llm
+    result = chain.invoke({"input": f"Classifica la seguente domanda: {query}"})
+    return result.content.strip().lower()

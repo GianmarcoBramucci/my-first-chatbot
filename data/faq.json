@@ -1,14 +1,100 @@
-{
-    "faq": {
-    "reset password": "Puoi resettare la password dalle impostazioni dell'account.",
-    "install driver": "Scarica i driver dal nostro sito ufficiale e segui le istruzioni.",
-    "garanzia prodotti": "La garanzia dei prodotti TechAssist dura 24 mesi.",
-    "orari assistenza": "Il nostro servizio di assistenza è disponibile dal lunedì al venerdì, dalle 9:00 alle 13:00 e dalle 15:00 fino alle 19:00.",
-    "assistenza remota": "Offriamo assistenza remota attraverso TeamViewer o AnyDesk.",
-    "metodi pagamento": "Accettiamo pagamenti con carta di credito, PayPal e bonifico bancario.",
-    "tempi consegna": "La consegna standard avviene in 3-5 giorni lavorativi.",
-    "resi prodotti": "I prodotti possono essere restituiti entro 14 giorni dall'acquisto.",
-    "software compatibilità": "Verifica la compatibilità del software nella pagina del prodotto.",
-    "cancellare account": "Per cancellare il tuo account, contatta il nostro servizio clienti."
+[
+  {
+  "domanda": "Come posso resettare la mia password?",
+  "risposta": "Puoi resettare la password dalle impostazioni dell'account sul nostro portale clienti. Se hai difficoltà, contatta il supporto."
+  },
+  {
+  "domanda": "Dove posso trovare i driver da installare?",
+  "risposta": "Scarica i driver dal nostro sito ufficiale nella sezione supporto tecnico e segui le istruzioni fornite."
+  },
+  {
+  "domanda": "Quanto dura la garanzia sui prodotti TechAssist?",
+  "risposta": "La garanzia sui prodotti TechAssist è di 24 mesi dalla data di acquisto."
+  },
+  {
+  "domanda": "Quali sono gli orari del servizio di assistenza?",
+  "risposta": "Il nostro servizio di assistenza è disponibile dal lunedì al venerdì, dalle 9:00 alle 13:00 e dalle 15:00 alle 19:00."
+  },
+  {
+  "domanda": "Che tipo di assistenza remota offrite?",
+  "risposta": "Offriamo assistenza remota tramite TeamViewer o AnyDesk per risolvere i problemi tecnici in modo rapido."
+  },
+  {
+  "domanda": "Quali metodi di pagamento accettate?",
+  "risposta": "Accettiamo pagamenti con carta di credito, PayPal e bonifico bancario."
+  },
+  {
+  "domanda": "Quanto tempo ci vuole per la consegna standard?",
+  "risposta": "La consegna standard avviene in 3-5 giorni lavorativi."
+  },
+  {
+  "domanda": "Qual è la politica di reso per i prodotti acquistati?",
+  "risposta": "I prodotti possono essere restituiti entro 14 giorni dall'acquisto, secondo le nostre condizioni di reso."
+  },
+  {
+  "domanda": "Come posso verificare la compatibilità del software con il mio dispositivo?",
+  "risposta": "Verifica la compatibilità del software nella pagina del prodotto o contatta il supporto tecnico per maggiori informazioni."
+  },
+  {
+  "domanda": "Come posso cancellare il mio account?",
+  "risposta": "Per cancellare il tuo account, contatta il nostro servizio clienti tramite email o telefono."
+  },
+  {
+  "domanda": "Avete un numero di telefono per il supporto clienti?",
+  "risposta": "Sì, puoi contattarci al numero +39 0123 456789 per ricevere assistenza."
+  },
+  { 
+  "domanda": "Dove si trova la vostra sede principale?",
+  "risposta": "La nostra sede principale si trova a Milano, in Via Roma 123."
+  },
+  {
+  "domanda": "Posso modificare un ordine dopo averlo confermato?",
+  "risposta": "Gli ordini possono essere modificati entro 2 ore dalla conferma, contattando il nostro supporto clienti."
+  },
+  {
+  "domanda": "Come posso tracciare la spedizione del mio ordine?",
+  "risposta": "Riceverai un'email con il link per tracciare la spedizione non appena l'ordine verrà spedito."
+  },
+  {
+  "domanda": "Fornite assistenza per l'installazione dei prodotti?",
+  "risposta": "Sì, offriamo assistenza telefonica e remota per l'installazione dei nostri prodotti."
+  },
+  {
+  "domanda": "Offrite sconti per ordini aziendali o all'ingrosso?",
+  "risposta": "Sì, offriamo sconti per ordini superiori a 10 unità. Contatta il nostro ufficio vendite per maggiori informazioni."
+  },
+  {
+  "domanda": "Posso acquistare i vostri prodotti nei negozi fisici?",
+  "risposta": "I nostri prodotti sono disponibili solo online o presso i rivenditori autorizzati."
+  },
+  {
+  "domanda": "Quali sono i tempi di risposta del supporto tecnico?",
+  "risposta": "Rispondiamo alle richieste entro 24 ore lavorative."
+  },
+  {
+  "domanda": "Come posso aggiornare il firmware del mio dispositivo?",
+  "risposta": "Trovi le istruzioni per l'aggiornamento firmware nella sezione supporto del nostro sito web."
+  },
+  {
+  "domanda": "Cosa devo fare se il mio prodotto è difettoso?",
+  "risposta": "Puoi aprire una richiesta di assistenza nella tua area cliente e seguire le istruzioni per il reso."
+  },
+  {
+  "domanda": "Quali sono i requisiti di sistema per il vostro software?",
+  "risposta": "I requisiti di sistema variano a seconda del software. Controlla la pagina del prodotto per i dettagli."
+  },
+  {
+  "domanda": "Come posso aprire un ticket di assistenza?",
+  "risposta": "Puoi aprire un ticket di assistenza direttamente dalla tua area cliente sul nostro sito web."
+  },
+  {
+  "domanda": "Cosa fare se non ricevo risposta dal supporto tecnico?",
+  "risposta": "Se non ricevi risposta entro 24 ore lavorative, ti consigliamo di ricontattarci tramite telefono o chat."
+  },
+  {
+  "domanda": "Come posso richiedere un preventivo per un ordine personalizzato?",
+  "risposta": "Puoi richiedere un preventivo personalizzato compilando il modulo nella sezione 'Richiesta Preventivo' del nostro sito."
   }
-}
+  ]
+  
+  

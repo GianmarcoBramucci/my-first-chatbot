@@ -1,0 +1,76 @@
+{
+  "azienda": "TechAssist Srl",
+  "descrizione": "TechAssist Srl è specializzata nella vendita di hardware e software, offrendo anche servizi di assistenza tecnica e supporto ai clienti.",
+  "contatti": {
+  "telefono": "+39 0123 456789",
+  "email": "supporto@techassist.it",
+  "indirizzo": "Via Roma 123, Milano, Italia",
+  "sito_web": "https://www.techassist.it",
+  "orari_assistenza": "Lunedì - Venerdì, 9:00 - 19:00"
+  },
+  "servizi": {
+  "vendita": {
+  "descrizione": "Vendita di hardware e software per aziende e privati.",
+  "categorie": ["Computer", "Stampanti", "Software Gestionali", "Accessori", "Server", "Periferiche"]
+  },
+  "assistenza_tecnica": {
+  "descrizione": "Supporto tecnico su hardware e software.",
+  "tipologie": ["Assistenza Remota", "Riparazione Hardware", "Installazione Software", "Aggiornamenti Firmware", "Recupero Dati"]
+  },
+  "supporto_clienti": {
+  "descrizione": "Gestione delle richieste di assistenza e domande dei clienti.",
+  "metodi_contatto": ["Email", "Telefono", "Live Chat", "Ticket Online", "WhatsApp"]
+  },
+  "consulenza_it": {
+  "descrizione": "Consulenza IT per aziende e professionisti.",
+  "servizi_offerti": ["Analisi infrastruttura IT", "Sicurezza informatica", "Ottimizzazione rete"]
+  }
+  },
+  "procedure": {
+  "reset_password": {
+  "descrizione": "Come resettare la password dell'account cliente.",
+  "passaggi": [
+  "Accedi alla pagina di login sul nostro sito.",
+  "Clicca su 'Password dimenticata?'.",
+  "Inserisci il tuo indirizzo email e segui le istruzioni ricevute via email.",
+  "Se non ricevi l'email, controlla lo spam o contatta il supporto."
+  ]
+  },
+  "resistenza_prodotto": {
+  "descrizione": "Come avviare una richiesta di reso per un prodotto difettoso.",
+  "passaggi": [
+  "Accedi alla tua area cliente.",
+  "Seleziona l'ordine contenente il prodotto da restituire.",
+  "Compila il modulo di reso e attendi l'approvazione del supporto.",
+  "Riceverai istruzioni su come spedire il prodotto."
+  ]
+  },
+  "installazione_software": {
+  "descrizione": "Guida all'installazione di software acquistato.",
+  "passaggi": [
+  "Scarica il file di installazione dalla tua area cliente.",
+  "Esegui il file e segui le istruzioni a schermo.",
+  "Inserisci il codice di attivazione fornito al momento dell'acquisto.",
+  "Riavvia il computer per completare l'installazione."
+  ]
+  },
+  "aggiornamento_firmware": {
+  "descrizione": "Come aggiornare il firmware del tuo dispositivo.",
+  "passaggi": [
+  "Scarica il file firmware dalla sezione supporto del nostro sito.",
+  "Collega il dispositivo al computer.",
+  "Avvia l'aggiornamento seguendo le istruzioni fornite.",
+  "Non spegnere il dispositivo durante l'aggiornamento."
+  ]
+  },
+  "configurazione_rete": {
+  "descrizione": "Configurazione di rete per dispositivi aziendali.",
+  "passaggi": [
+  "Accedi al pannello di controllo del router.",
+  "Configura le impostazioni IP e DNS.",
+  "Abilita la protezione firewall.",
+  "Salva le impostazioni e riavvia il router."
+  ]
+  }
+  }
+  }

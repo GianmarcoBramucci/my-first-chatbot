@@ -1,9 +1,9 @@
 {
-    "utenti":{
-        "FREE":"fornisci una risposta generica ma incoraggia l'upgrade ai piani a pagamento.",
-        "Piano Base": "offri supporto, ma evidenzia le funzioni avanzate disponibili nei piani superiori.",
-        "PRO":"rispondi in modo dettagliato, mettendo in risalto le funzionalità premium disponibili per lui.",
-        "ULTRA PRO":"offri una risposta premium con priorità, enfatizzando l'accesso esclusivo ai servizi top di gamma."
+    "utenti": {
+      "Cliente Occasionale": "Fornisci una risposta chiara e generica, sottolineando i vantaggi del supporto dedicato per clienti registrati.",
+      "Cliente Registrato": "Offri una risposta dettagliata e suggerisci servizi aggiuntivi disponibili per migliorare l'esperienza.",
+      "Azienda Cliente": "Rispondi con soluzioni pratiche, evidenziando le funzionalità avanzate disponibili per aziende con esigenze specifiche.",
+      "Partner Tecnologico": "Fornisci risposte premium con priorità, mettendo in risalto i vantaggi esclusivi riservati ai partner certificati."
     }
-}
-
+  }
+  
