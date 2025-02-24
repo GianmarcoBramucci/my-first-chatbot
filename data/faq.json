@@ -1,7 +1,7 @@
-[
+{"faq":[
   {
   "domanda": "Come posso resettare la mia password?",
-  "risposta": "Puoi resettare la password dalle impostazioni dell'account sul nostro portale clienti. Se hai difficoltà, contatta il supporto."
+  "risposta": "Puoi resettare la password dalle impostazioni dell account sul nostro portale clienti. Se hai difficoltà, contatta il supporto."
   },
   {
   "domanda": "Dove posso trovare i driver da installare?",
@@ -29,7 +29,7 @@
   },
   {
   "domanda": "Qual è la politica di reso per i prodotti acquistati?",
-  "risposta": "I prodotti possono essere restituiti entro 14 giorni dall'acquisto, secondo le nostre condizioni di reso."
+  "risposta": "I prodotti possono essere restituiti entro 14 giorni dall acquisto, secondo le nostre condizioni di reso."
   },
   {
   "domanda": "Come posso verificare la compatibilità del software con il mio dispositivo?",
@@ -53,14 +53,14 @@
   },
   {
   "domanda": "Come posso tracciare la spedizione del mio ordine?",
-  "risposta": "Riceverai un'email con il link per tracciare la spedizione non appena l'ordine verrà spedito."
+  "risposta": "Riceverai un email con il link per tracciare la spedizione non appena l ordine verrà spedito."
   },
   {
-  "domanda": "Fornite assistenza per l'installazione dei prodotti?",
-  "risposta": "Sì, offriamo assistenza telefonica e remota per l'installazione dei nostri prodotti."
+  "domanda": "Fornite assistenza per l installazione dei prodotti?",
+  "risposta": "Sì, offriamo assistenza telefonica e remota per l installazione dei nostri prodotti."
   },
   {
-  "domanda": "Offrite sconti per ordini aziendali o all'ingrosso?",
+  "domanda": "Offrite sconti per ordini aziendali o all ingrosso?",
   "risposta": "Sì, offriamo sconti per ordini superiori a 10 unità. Contatta il nostro ufficio vendite per maggiori informazioni."
   },
   {
@@ -73,7 +73,7 @@
   },
   {
   "domanda": "Come posso aggiornare il firmware del mio dispositivo?",
-  "risposta": "Trovi le istruzioni per l'aggiornamento firmware nella sezione supporto del nostro sito web."
+  "risposta": "Trovi le istruzioni per l aggiornamento firmware nella sezione supporto del nostro sito web."
   },
   {
   "domanda": "Cosa devo fare se il mio prodotto è difettoso?",
@@ -93,8 +93,8 @@
   },
   {
   "domanda": "Come posso richiedere un preventivo per un ordine personalizzato?",
-  "risposta": "Puoi richiedere un preventivo personalizzato compilando il modulo nella sezione 'Richiesta Preventivo' del nostro sito."
+  "risposta": "Puoi richiedere un preventivo personalizzato compilando il modulo nella sezione Richiesta Preventivo del nostro sito."
   }
-  ]
+  ]}
   
   
