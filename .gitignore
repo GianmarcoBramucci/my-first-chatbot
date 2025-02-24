@@ -1,1 +1,4 @@
 .env
+.google-cookie
+__pycache__/
+

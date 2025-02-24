@@ -1,5 +1,6 @@
 import json
 import os
+import numpy as np
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
@@ -42,16 +43,23 @@ def splitToChunks(json_path, chunk_size=250):
     return chunks
 def processJsonToEmbedding(json_path, output_path):
     """
-    Carica un file JSON, genera gli embedding e salva il risultato in un file JSON di output.
+    Carica un file JSON, genera gli embedding e salva sia i chunks che gli embedding nel file di output.
     """
     document_chunks = splitToChunks(json_path)
     embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
     embeddings = embeddings_model.embed_documents(document_chunks)
     
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(embeddings, f, ensure_ascii=False, indent=4)
+    # Creiamo un dizionario con entrambi i dati
+    output_data = {
+        "chunks": document_chunks,
+        "embeddings": embeddings
+    }
     
-    print(f"Embeddings salvati con successo in {output_path}!")
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, ensure_ascii=False, indent=4)
+    
+    print(f"Chunks ed embeddings salvati con successo in {output_path}!")
+    return document_chunks, np.array(embeddings)
 
 # Caricamento API Key
 env_loaded = load_dotenv()
