@@ -11,17 +11,16 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 model = os.getenv("MODELLO")
 llm = ChatOpenAI(model_name=model, api_key=openai_api_key)
 
-def load_embeddings(embedding_path):
-    with open(embedding_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data["chunks"], np.array(data["embeddings"])
+def openJson(path_json):
+    with open(path_json, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def generate_assistance(query: str, faq_result: dict, web_results: list = None) -> str:
     system_message = """Sei un assistente dedicato ai clienti perché L'azienda **TechAssist Srl**, 
     specializzata nella vendita di hardware e software, ha difficoltà nella gestione delle richieste 
     di assistenza dei clienti rispondi sempre in maniera tecnica e mai fuori contesto e sopratutto a meno che non venga chiesto cerca su intenet se non trovi nulla.
-    se non e specificato il sogetto della domanda si prende per scontato che si stanno rivolgendo a TechAssist Srl o a uno dei suoi servizzi
+    se non e specificato il sogetto della domanda si prende per scontato che si stanno rivolgendo a TechAssist Srl o a uno dei suoi servizzi cerca le informazioni in italiano ma devi rispondere nella linga del utente
     """
     
     context_message = f"Conoscenza interna: {faq_result['risposta']}"
@@ -34,7 +33,7 @@ def generate_assistance(query: str, faq_result: dict, web_results: list = None) 
     ])
     
     chain = prompt | llm
-    result = chain.invoke({"input": f"""Un utente ha chiesto: "{query}"
+    result = chain.invoke({"input": f"""Un utente ha chiesto rispondi nella linga del utente: "{query}"
     {context_message}
     Fornisci una risposta chiara e utile.
     """})
@@ -50,11 +49,12 @@ def pulisci_query_agent(query: str) -> str:
     return result.content.strip()
 
 # Carica gli embedding
-faq_chunks, faq_embeddings = load_embeddings("data/embeddings_faq.json")
-kb_chunks, kb_embeddings = load_embeddings("data/embeddings_kb.json")
-
+faq= openJson("data/faq.json")
+kb= openJson("data/knowledgeBase.json")
+faq_embeddings = [dizionario['dVec'] for dizionario in faq]
+kb_embeddings = [dizionario['vec'] for dizionario in kb]
 # Crea i tools
-web_tool, faq_tool = create_tools(faq_embeddings, faq_chunks, kb_embeddings, kb_chunks)
+web_tool, faq_tool = create_tools(faq_embeddings, faq, kb_embeddings, kb)
 
 def process_query(domanda: str) -> str:
     """
@@ -64,7 +64,6 @@ def process_query(domanda: str) -> str:
     
     # Prima cerca nelle FAQ
     faq_result = faq_tool.run(domanda_pulita)
-    
     # Se necessario, cerca anche su web
     web_results = None
     if faq_result["fonte"] == "none":
@@ -76,6 +75,6 @@ def process_query(domanda: str) -> str:
 
 # Esempio di utilizzo
 
-domanda = "ciao come sono i nuovi processori usciti?"
+domanda = "come aggiorno i driver?"
 risposta = process_query(domanda)
 print("Risposta AI:", risposta)

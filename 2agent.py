@@ -62,7 +62,7 @@ def classify_query_agent(query: str) -> str:
                 Decidi dove è meglio cercare la risposta:
                 - 'FAQ' se la domanda è comune
                 - 'Knowledge Base' se serve più dettaglio
-                - 'Web' se la risposta non è nei dati interni o se
+                - 'Web' se la risposta non è nei dati interni o se 
                 Rispondi SOLO con 'FAQ', 'Knowledge Base' o 'Web'.
                 """
             ),
