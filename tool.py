@@ -2,7 +2,6 @@ from typing import Dict, List
 from langchain.tools import Tool
 from googlesearch import search
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 from langchain_openai import OpenAIEmbeddings
 
 def cerca_su_internet(domanda: str) -> List[str]:
@@ -16,6 +15,7 @@ def cerca_su_internet(domanda: str) -> List[str]:
                 return "Non ho trovato risultati rilevanti su Internet."
     except Exception as e:
             return f"Errore nella ricerca online: {e}"
+    
 def find_best_match(question, faq_embeddings, faq, kb_embeddings, kb, threshold=0.55):
     """
     Finds the most relevant answer by comparing the question with FAQ and KB embeddings
