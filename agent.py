@@ -4,7 +4,11 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from tool import create_tools  
-
+from conversation_utils import (
+    save_conversation_memory, 
+    create_ticket, 
+    genera_messaggio_ticket
+)
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
@@ -51,8 +55,16 @@ def classifica_sentimento_agent(query: str) -> str:
     chain = prompt | llm
     response = chain.invoke({"input": query})
     return response.content.strip()
+def get_last_conversations(path_json, limit=3):
+    """
+    Carica le ultime `limit` conversazioni dal file JSON.
+    Se ci sono meno di `limit` conversazioni, le restituisce tutte.
+    """
+    conversations = openJson(path_json)
+    conversations.sort(key=lambda x: x["timestamp"], reverse=True)
+    return conversations[:limit]
 
-def generate_assistance(query: str, sentiment: str,user: str, faq_result: dict, web_results: list = None) -> str:
+def generate_assistance(query: str,cId: str, sentiment: str,user: str, faq_result: dict, web_results: list = None) -> str:
     system_message = """
     Ruolo: Sei un assistente specializzato nell'assistenza clienti per l'azienda TechAssist Srl, che si occupa della vendita di hardware e software.  
 
@@ -69,11 +81,13 @@ def generate_assistance(query: str, sentiment: str,user: str, faq_result: dict, 
     """
     users=openJson("data/users.json")
     context_message = f"il sentimento del utente: {sentiment}"
+    if os.path.exists(f"data/conversation_memory_{cId}.json"):
+        lastMessage=get_last_conversations(f"data/conversation_memory_{cId}.json")
+        context_message += f"i messagi precedenti: {lastMessage}"
     context_message += f"\ncome comportarsi in base al ruolo di questo utente: {user}:{users['utenti'][user]}"
     context_message += f"\nConoscenza interna: {faq_result['risposta']}"
     if web_results:
         context_message += f"\nRisultati dalla ricerca web: {web_results}"
-    
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_message),
         ("human", "{input}")
@@ -95,7 +109,7 @@ kb_embeddings = [dizionario['vec'] for dizionario in kb]
 # Crea i tools
 web_tool, faq_tool = create_tools(faq_embeddings, faq, kb_embeddings, kb)
 
-def process_query(domanda: str,user: str) -> str:
+def process_query(domanda: str,user: str,cId: str) -> str:
     """
     Processa una query dell'utente utilizzando i tool di Langchain.
     """
@@ -108,11 +122,20 @@ def process_query(domanda: str,user: str) -> str:
     if faq_result["fonte"] == "none":
         web_results = web_tool.run(domanda_pulita)
     # Genera la risposta finale
-    risposta = generate_assistance(domanda,sentiment,user, faq_result, web_results)
+    risposta = generate_assistance(domanda,cId,sentiment,user, faq_result, web_results)
+    save_conversation_memory(
+        conversation_id=cId, 
+        user_query=domanda, 
+        ai_response=risposta, 
+        user_role=user,
+        sentiment=sentiment
+    )
+    ticket = create_ticket(domanda, sentiment, user,cId)
+    if ticket:
+        risposta += f"\n\n{genera_messaggio_ticket(ticket)}"
     return risposta
 
 # Esempio di utilizzo
-
-domanda = "Where can I find your head office?"
-risposta = process_query(domanda,"Cliente Occasionale")
+domanda2 = "ho un problema con un prodotto difettoso vorrei parlare con un operatore"
+risposta = process_query(domanda2,"Cliente Occasionale",'conversazione_01')
 print("Risposta AI:", risposta)
