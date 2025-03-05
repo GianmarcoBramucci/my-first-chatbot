@@ -1,20 +1,63 @@
 from typing import Dict, List
 from langchain.tools import Tool
+import requests
+from bs4 import BeautifulSoup
 from googlesearch import search
 import numpy as np
 from langchain_openai import OpenAIEmbeddings
 
-def cerca_su_internet(domanda: str) -> List[str]:
-    """Cerca informazioni su Internet utilizzando Google Search."""
+def cerca_su_internet(domanda: str) -> List[dict]:
+    """
+    Cerca informazioni su Internet e restituisce il contenuto testuale delle pagine.
+    """
     try:
-            print("attivo internet")
-            risultati = list(search(domanda, num=2, stop=2, lang="it"))
-            if risultati:
-                return risultati
-            else:
-                return "Non ho trovato risultati rilevanti su Internet."
+        # Esegue la ricerca su Google
+        risultati_url = list(search(domanda, num=3, stop=3, lang="it"))
+        
+        contenuti_pagine = []
+        
+        # Scarica e analizza il contenuto di ogni pagina
+        for url in risultati_url:
+            try:
+                # Invia una richiesta GET alla pagina
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                }
+                risposta = requests.get(url, headers=headers, timeout=10)
+                
+                # Verifica che la richiesta sia andata a buon fine
+                risposta.raise_for_status()
+                
+                # Analizza il contenuto HTML
+                soup = BeautifulSoup(risposta.text, 'html.parser')
+                
+                # Rimuove script, style e altri tag non testuali
+                for script in soup(["script", "style"]):
+                    script.decompose()
+                
+                # Estrae il testo principale
+                testo = soup.get_text(separator=' ', strip=True)
+                
+                # Pulisce il testo (rimuove spazi extra, newline)
+                testo = ' '.join(testo.split())
+                
+                # Tronca il testo se troppo lungo (ad esempio, primi 2000 caratteri)
+                testo = testo[:2000]
+                
+                # Aggiunge il risultato alla lista
+                contenuti_pagine.append({
+                    'url': url,
+                    'contenuto': testo
+                })
+                
+            except requests.RequestException as e:
+                print(f"Errore nel recuperare {url}: {e}")
+        
+        # Restituisce i risultati
+        return contenuti_pagine if contenuti_pagine else [{"errore": "Nessun risultato trovato"}]
+    
     except Exception as e:
-            return f"Errore nella ricerca online: {e}"
+        return [{"errore": f"Errore nella ricerca online: {e}"}]
     
 def find_best_match(question, faq_embeddings, faq, kb_embeddings, kb, threshold=0.55):
     """
